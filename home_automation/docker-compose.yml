@@ -6,12 +6,12 @@ services:
     container_name: home-assistant
     volumes:
       - /var/opt/home-assistant/config:/config
-  network_mode: host
-  depends_on:
-    - mariadb
-    # MariaDB is optional (only if you would like to use a different database for HA).
-  user: "${LOCAL_USER}:${LOCAL_USER}"
-  
+    network_mode: "host"
+    depends_on:
+      - mariadb
+      # MariaDB is optional (only if you would like to use a different database for HA).
+    user: "${LOCAL_USER}:${LOCAL_USER}"
+    
   mariadb:
     image: mariadb/server:10.3
     container_name: mariadb
