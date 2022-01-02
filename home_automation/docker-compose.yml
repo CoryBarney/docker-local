@@ -36,7 +36,7 @@ services:
       # Local path where all Node-RED config will be stored.
       - /var/opt/nodered:/data
     depends_on:
-      - homeassistant
+      - home-assistant
     environment:
       TZ: "America/Halifax"
     user: "${LOCAL_USER}:${LOCAL_USER}"
@@ -54,7 +54,7 @@ services:
       - "5050:5050"
     volumes:
       # Set which local directory will contain all your app daemon configuration
-      - <local config>:/conf
+      - /var/opt/appdaemon:/conf
     depends_on:
-      - homeassistant
+      - home-assistant
     user: "${LOCAL_USER}:${LOCAL_USER}"
